@@ -5,37 +5,37 @@ import List from '../src/01/List';
 
 describe("Component: List", function() {
 
-  xit("contains a div with class `content`", function() {
+  it("contains a div with class `content`", function() {
     expect(shallow(<List />).find("div.content")).to.have.length(1);
   });
 
-  xit("has an input field", function() {
+  it("has an input field", function() {
     expect(shallow(<List />).find("input")).to.have.length(1);
   });
 
-  xit("has a button with text `Submit`", function() {
+  it("has a button with text `Submit`", function() {
     const wrapper = shallow(<List />);
     expect(wrapper.find("button")).to.have.length(1);
     expect(wrapper.find("button").first().text()).to.equal("Submit");
   });
 
-  xit("has a state `names` which is initialized as an empty array", function() {
+  it("has a state `names` which is initialized as an empty array", function() {
     const wrapper = shallow(<List />);
-    expect(wrapper.state().names).to.be.instanceOf(Array);
     expect(wrapper.state().names.length).to.equal(0);
+    expect(wrapper.state().names).to.be.instanceOf(Array);
   });
 
-  xit("has a state `current` which is initialized as an empty string", function() {
+  it("has a state `current` which is initialized as an empty string", function() {
     const wrapper = shallow(<List />);
     expect(wrapper.state().current).to.equal("");
   });
 
-  xit("the input field has an onChange event listener", function() {
+  it("the input field has an onChange event listener", function() {
     const inputField = shallow(<List />).find("input");
     expect(inputField.props().onChange).to.be.instanceOf(Function);
   });
 
-  xit("submitting text in the input field adds to the state", function() {
+  it("submitting text in the input field adds to the state", function() {
     const wrapper = mount(<List />);
     const name = "Mariko";
     wrapper.setState({ current: name })
