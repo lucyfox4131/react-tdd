@@ -21459,10 +21459,12 @@
 
 	    _this.state = {
 	      names: [],
-	      current: ''
+	      current: '',
+	      header: header()
 	    };
 	    _this.handleChange = _this.handleChange.bind(_this);
 	    _this.handleSubmit = _this.handleSubmit.bind(_this);
+	    _this.header = _this.header.bind(_this);
 	    return _this;
 	  }
 
@@ -21471,7 +21473,6 @@
 	    value: function () {
 	      function handleChange(event) {
 	        this.setState({ current: event.target.value });
-	        console.log("Current", this.state.current);
 	      }
 
 	      return handleChange;
@@ -21480,14 +21481,23 @@
 	    key: 'handleSubmit',
 	    value: function () {
 	      function handleSubmit(event) {
-	        var currentWord = this.state.current;
 	        var names = this.state.names;
-	        names.push(currentWord);
-	        this.setState({ names: names });
-	        console.log("Names on submit", this.state.names);
+	        names.push(this.state.current);
+	        this.setState({ names: names, header: names.toString() });
 	      }
 
 	      return handleSubmit;
+	    }()
+	  }, {
+	    key: 'header',
+	    value: function () {
+	      function header() {
+	        if (this.state.names.length == 0) {
+	          "Nothing here yet :(";
+	        }
+	      }
+
+	      return header;
 	    }()
 	  }, {
 	    key: 'render',
@@ -21496,6 +21506,11 @@
 	        return _react2['default'].createElement(
 	          'div',
 	          { className: 'content' },
+	          _react2['default'].createElement(
+	            'h1',
+	            null,
+	            this.state.header
+	          ),
 	          _react2['default'].createElement('input', { onChange: this.handleChange, value: this.state.current }),
 	          _react2['default'].createElement(
 	            'button',
@@ -21513,8 +21528,6 @@
 	}(_react.Component);
 
 	exports['default'] = List;
-
-	// ReactDOM.render(List, document.getElementById('app'))
 
 /***/ }
 /******/ ]);

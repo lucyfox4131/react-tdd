@@ -54,7 +54,7 @@ describe("Component: List", function() {
     expect(wrapper.find("div.content").text()).to.include("Nothing here yet :(");
   });
 
-  xit("renders submitted text", function() {
+  it("renders submitted text", function() {
     const wrapper = mount(<List />);
     const name = "Mariko";
     wrapper.setState({ names: [name] })
