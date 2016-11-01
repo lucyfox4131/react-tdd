@@ -46,7 +46,7 @@ describe("Component: List", function() {
     expect(wrapper.state().names[0]).to.equal(name);
   });
 
-  xit("given state `current` is empty, it renders an h1", function() {
+  it("given state `current` is empty, it renders an h1", function() {
     const wrapper = mount(<List />);
 
     expect(shallow(<List />).find("div.content")).to.have.length(1);

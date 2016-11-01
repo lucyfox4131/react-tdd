@@ -7,18 +7,18 @@ class List extends Component {
       names: [],
       current: '',
     };
-    // this.handleChange = this.handleChange.bind(this),
-    // this.handleSubmit = this.handleSubmit.bind(this),
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event){
-    this.setState({current: event.target.value})
+    this.setState({current: event.target.value })
+    console.log("Current", this.state.current)
   }
 
   handleSubmit(event){
-    let currentWord = this.state.current
     let names = this.state.names
-    names.push(currentWord)
+    names.push(this.state.current)
     this.setState({names: names})
   }
 
@@ -31,6 +31,5 @@ class List extends Component {
     );
   }
 }
-
 
 export default List;
