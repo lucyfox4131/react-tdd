@@ -21483,7 +21483,6 @@
 	        var names = this.state.names;
 	        names.push(this.state.current);
 	        this.setState({ names: names, current: '' });
-	        console.log("Header", this.header);
 	      }
 
 	      return handleSubmit;
@@ -21493,10 +21492,8 @@
 	    value: function () {
 	      function header() {
 	        if (this.state.names.length > 0) {
-	          console.log("Hello");
-	          // return names.toString()
+	          return names.toString();
 	        } else {
-	          console.log("World!");
 	          return 'Nothing here yet :(';
 	        }
 	      }

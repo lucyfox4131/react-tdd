@@ -1,5 +1,13 @@
 import React, { Component } from 'react';
 
+function Header({names}) {
+  if(names.length > 0){
+    return <h1>{names.toString()}</h1>
+  } else {
+    return <h1>'Nothing here yet :('</h1>
+  }
+}
+
 class List extends Component {
   constructor() {
     super();
@@ -7,7 +15,6 @@ class List extends Component {
       names: [],
       current: '',
     };
-    this.header = this.header.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -20,25 +27,24 @@ class List extends Component {
     let names = this.state.names
     names.push(this.state.current)
     this.setState({ names: names, current: '' })
-    console.log("Header", this.header)
   }
 
-
-  header(){
-    if(this.state.names.length > 0){
-      console.log("Hello")
-      return names.toString()
-    }else{
-      console.log("World!")
-      return 'Nothing here yet :('
-    }
-  }
+  // header(){
+  //   const {names} = this.state
+  //   if(names.length > 0){
+  //     return names.toString()
+  //   }else{
+  //     return 'Nothing here yet :('
+  //   }
+  // }
 
   render() {
+    const { current, names } = this.state;
+
     return (
       <div className='content'>
-        <h1>{this.header}</h1>
-        <input onChange={this.handleChange} value={this.state.current} />
+        <Header names={names} />
+        <input onChange={this.handleChange} value={current} />
         <button onClick={this.handleSubmit}>Submit</button>
       </div>
     );
