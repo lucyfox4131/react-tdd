@@ -6,8 +6,8 @@ class List extends Component {
     this.state = {
       names: [],
       current: '',
-      header: 'Nothing here yet :(',
     };
+    this.header = this.header.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -19,13 +19,25 @@ class List extends Component {
   handleSubmit(event){
     let names = this.state.names
     names.push(this.state.current)
-    this.setState({ names: names, header: names.toString() })
+    this.setState({ names: names, current: '' })
+    console.log("Header", this.header)
+  }
+
+
+  header(){
+    if(this.state.names.length > 0){
+      console.log("Hello")
+      return names.toString()
+    }else{
+      console.log("World!")
+      return 'Nothing here yet :('
+    }
   }
 
   render() {
     return (
       <div className='content'>
-        <h1>{this.state.header}</h1>
+        <h1>{this.header}</h1>
         <input onChange={this.handleChange} value={this.state.current} />
         <button onClick={this.handleSubmit}>Submit</button>
       </div>

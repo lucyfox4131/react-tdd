@@ -21459,12 +21459,11 @@
 
 	    _this.state = {
 	      names: [],
-	      current: '',
-	      header: header()
+	      current: ''
 	    };
+	    _this.header = _this.header.bind(_this);
 	    _this.handleChange = _this.handleChange.bind(_this);
 	    _this.handleSubmit = _this.handleSubmit.bind(_this);
-	    _this.header = _this.header.bind(_this);
 	    return _this;
 	  }
 
@@ -21483,7 +21482,8 @@
 	      function handleSubmit(event) {
 	        var names = this.state.names;
 	        names.push(this.state.current);
-	        this.setState({ names: names, header: names.toString() });
+	        this.setState({ names: names, current: '' });
+	        console.log("Header", this.header);
 	      }
 
 	      return handleSubmit;
@@ -21492,8 +21492,12 @@
 	    key: 'header',
 	    value: function () {
 	      function header() {
-	        if (this.state.names.length == 0) {
-	          "Nothing here yet :(";
+	        if (this.state.names.length > 0) {
+	          console.log("Hello");
+	          // return names.toString()
+	        } else {
+	          console.log("World!");
+	          return 'Nothing here yet :(';
 	        }
 	      }
 
@@ -21509,7 +21513,7 @@
 	          _react2['default'].createElement(
 	            'h1',
 	            null,
-	            this.state.header
+	            this.header
 	          ),
 	          _react2['default'].createElement('input', { onChange: this.handleChange, value: this.state.current }),
 	          _react2['default'].createElement(
