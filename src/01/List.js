@@ -29,15 +29,6 @@ class List extends Component {
     this.setState({ names: names, current: '' })
   }
 
-  // header(){
-  //   const {names} = this.state
-  //   if(names.length > 0){
-  //     return names.toString()
-  //   }else{
-  //     return 'Nothing here yet :('
-  //   }
-  // }
-
   render() {
     const { current, names } = this.state;
 

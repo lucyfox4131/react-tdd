@@ -67,7 +67,7 @@ describe("Component: List", function() {
     expect(wrapper.find("div.content").text()).to.include(name);
   });
 
-  xit("renders all submitted text", function() {
+  it("renders all submitted text", function() {
     const wrapper = mount(<List />);
     let name = "Mariko";
     wrapper.setState({ names: [name] })
