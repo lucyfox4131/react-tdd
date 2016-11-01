@@ -25,6 +25,7 @@ class List extends Component {
   render() {
     return (
       <div className='content'>
+        <h1>Nothing here yet :(</h1>
         <input onChange={this.handleChange} value={this.state.current} />
         <button onClick={this.handleSubmit}>Submit</button>
       </div>
