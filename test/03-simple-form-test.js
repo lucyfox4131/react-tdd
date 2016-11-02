@@ -18,20 +18,20 @@ const setup = (customProps = {}) => {
 
 describe('Component: SimpleForm', () => {
 
-  xit('renders the title', ()=> {
+  it('renders the title', ()=> {
     const component = setup();
 
     const title = component.props().title;
     expect(component.text()).to.include(title);
   });
 
-  xit('renders a button', ()=> {
+  it('renders a button', ()=> {
     const component = setup();
 
     expect(component.find('button')).to.have.length(1);
   });
 
-  xit('renders an input field and corresponding label', ()=> {
+  it('renders an input field and corresponding label', ()=> {
     const component = setup();
 
     expect(component.find('input').props().id).to.equal('add-new-song');
