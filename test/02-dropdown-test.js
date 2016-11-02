@@ -18,7 +18,7 @@ function setup(customProps = {}) {
 }
 
 describe('Component: Dropdown', () => {
-  xit('renders a given selection', () => {
+  it('renders a given selection', () => {
     const component = setup();
 
     expect(component.find('.dropdown__toggle').text()).to.match(/item1/);
